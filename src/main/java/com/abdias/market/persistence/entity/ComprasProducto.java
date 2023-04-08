@@ -9,11 +9,8 @@ import java.util.List;
 public class ComprasProducto {
     @EmbeddedId
     private ComprasProductoPK id;
-
     private Integer cantidad;
-
     private Double total;
-
     private Boolean estado;
 
     @ManyToOne
@@ -54,5 +51,13 @@ public class ComprasProducto {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
     }
 }
