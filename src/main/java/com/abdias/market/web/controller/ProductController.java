@@ -2,10 +2,12 @@ package com.abdias.market.web.controller;
 
 import com.abdias.market.domain.Product;
 import com.abdias.market.domain.service.ProductService;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping()
+    @ApiResponse(responseCode = "200", description = "OK")
     public ResponseEntity<List<Product>> getAll() {
         return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);
     }
